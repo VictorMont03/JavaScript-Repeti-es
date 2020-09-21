@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem</title>
+    <style>  
+        h1{
+            text-align: center;
+            color: aliceblue;
+            font: italic 20pt Arial;
+        }
+        section{
+            width: 500px;
+            height: 400px;
+            background: rgb(229, 229, 238);
+            border-radius: 15px;
+            margin: auto;
+        }
+        body{
+            background: rgb(124, 62, 182);
+        }
+        div{
+            font: normal 10pt arial;
+            padding: 10px;
+        }
+        footer{
+            font: normal 15pt Arial;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            Contagem
+        </h1>
+    </header>
+    <section>
+        <div id="dados">
+            <p>Digite o numero de começo: <input type="number"  id="comeco"></p>
+            <p>Digite o numero final: <input type="number"  id="fim"></p>
+            <p>Digite o passo: <input type="number"  id="pas"></p>
+            <p><input type="button" value="Iniciar" id="botao" onclick="contar()"></p>
+        </div>
+        <div id='res'>
+            Preparando a contagem...
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Victor`s Sites</p>
+    </footer>
+    <script>
+        function contar() {
+            var n1 = document.getElementById('comeco');
+            var n2 = document.getElementById('fim');
+            var p = document.getElementById('pas');
+            var res = document.getElementById('res');
+            if(n1.value.length == 0 || n2.value.length == 0){
+                window.alert('Dados Incorretos');
+            } else {             
+                res.innerHTML = 'Contando... '
+                var n1 = Number(n1.value);
+                var n2 = Number(n2.value);
+                var p = Number(p.value);
+                if(p <= 0){
+                    window.alert('Passo inválido... Considerando passo = 1');
+                    p = 1;
+                }
+                if(n1<n2){
+                    for(c = n1; c <= n2; c += p){
+                    res.innerHTML += `${c} \u{1F449}`
+                    }               
+                }else{
+                    for(c = n1; c >= n2; c -= p){
+                        res.innerHTML += `${c} \u{1F449} `
+                    }
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        h1{
+            text-align: center;
+            font: italic 20pt Arial;
+        }
+        section{
+            width: 500px;
+            height: 400px;
+            border-radius: 15px;
+            background: white;
+            margin: auto;
+        }
+        body{
+            background: rgb(50, 195, 205);
+        }
+        div{
+            font: normal 10pt Arial;
+            padding:  5px;
+        }
+        footer{
+            font: normal 15pt Arial;
+            color: white;
+            text-align: center;
+        }
+        input#botao{
+            width: 130px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+    <section>
+        <div>
+            <p>Digite o número: <input type="number" id="numero"></p>
+            <input type="button" value="Gerar Tabuada" id='botao' onclick="gerar()">
+        </div>
+        <div id='res'>
+            <select name='tabuada' id='selTab' size="10">
+                <option>°   . Tabuada Online  .  °</option>
+            </select>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Victor`s Sites</p>
+    </footer>
+    <script>
+        function gerar(){
+        var n1 = window.document.getElementById('numero');
+        var tab = document.getElementById('selTab');
+        var res = window.document.getElementById('res');
+        if(n1.venalue.lgth == 0){
+            window.alert('Dados Incorretos...')
+        } else {
+            var n1 = Number(n1.value);
+            tab.innerHTML = ''
+            for(c = 0; c <= 10; c++){
+                var item = document.createElement('option')//<option>Valor 1</option><option>Valor 2</option>             
+                resultado = n1*c
+                //res.innerHTML += `${n1} x ${c} = ${resultado} || `
+                item.text = `${n1} X ${c} = ${resultado}`
+                tab.appendChild(item)  //adcionar elemento filho
+            }
+        }
+        }
+    </script>
+</body>
+</html>
